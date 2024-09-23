@@ -1,8 +1,27 @@
+*{
+    /* 60% (Main Color): The dominant color that covers the majority of your website,
+     typically used for backgrounds or large sections. */
+--Main-color-- :#F4F4F9;
+    /* 30% (Secondary Color): A complementary color that adds contrast and is used for sections,
+     headers, or sidebars. */
+--Secondrey-color-- :#2C3E50;
+    /* 10% (Accent Color): The highlight color that draws attention to important elements like buttons,
+     links, or calls to action. */
+--Accent-Color-- : #FF7043;
+--white--:#ffffff;
+--Light-Grey--:#ECECEC;
+}
+html{
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
+    background-color: var(--Main-color--);
     margin: 0;
     padding: 0;
-    color: #333;
+    color: var(--Secondrey-color--);
 }
 
 /* scrollbar */
@@ -16,18 +35,19 @@ background: transparent;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-background: #333; 
+background: var(--Secondrey-color--); 
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-background: white; 
+background: var(--Accent-Color--); 
 }
 
 nav {
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
+    background-color: var(--Secondrey-color--);
+    border-bottom: 1px solid var(--Secondrey-color--);
     padding: 1em;
     text-align: center;
+    scroll-snap-align: start;
 }
 
 nav ul {
@@ -42,29 +62,33 @@ nav ul li {
 }
 
 nav ul li a {
+    scroll-behavior: smooth;
     text-decoration: none;
-    color: #333;
+    color: var(--white--);
     transition: all .2s;
 }
 nav ul li a:hover{
-    color: #ddd;
+    color: var(--Accent-Color--);
 }
 
 .hero {
-    background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,0)),url(../images/hero.jpg) no-repeat center center;
+    /* background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,0)),url(../images/hero.avif) no-repeat center center; */
     background-size: cover;
-    height: 80vh;
-    color: #fff;
+    height: 65vh;
+    color: var(--Secondrey-color--);
     text-align: center;
     padding: 20vh 0;
+    scroll-snap-align: start;
 }
 .hero h1{
-    font-size: 50px;
+    font-size: 3.5rem;
 }
 
+
 .cta-button {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--Accent-Color--);
+    color: var(--white--);
+    cursor: pointer;
     padding: 10px 20px;
     border-radius: 30px;
     text-decoration: none;
@@ -73,29 +97,119 @@ nav ul li a:hover{
     transition: all .2s;
 }
 .cta-button:hover{
-    background-color: #fff;
-    color: #333;    
-    border-color: #333;
+    background-color: var(--Secondrey-color--);   
+}
+.cta-button:click{
+transition: all .5;
 }
 h2 {
+    font-size: 3.5rem;
+    padding: 5%;
     text-align: center;
-    color: #555;
+    color: var(--Secondrey-color--);
+}
+#about{
+    height: 100vh;
+    scroll-snap-align: start;
+}
+#about p{
+    padding: 5%;
+    font-size: 1.5rem;
 }
 
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-}
-
-.portfolio-grid img {
-    width: 100%;
+#portfolio{
     height: auto;
-    border: 1px solid #ddd;
+    scroll-snap-align: start;
 }
+#portfolio h3{
+    padding-left: 5%;
+}
+.tag-list{
+    margin: 0;
+    padding-inline: 0;
+    list-style: none;
+}
+.tag-list li{
+    padding: 1rem;
+    color: white;
+    background-color: #333;
+    border-radius: .5rem;
+    box-shadow: 0 0.5rem 1rem -.25rem;
+}
+
+.scroller{
+    max-width: 600px;
+    outline: 3px solid green;
+}
+.scroller_inner{
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+  
+  
+#services{
+    height: 100vh;
+    scroll-snap-align: start;
+}
+
+#contact{
+    text-align: center;
+    height: 90vh;
+    scroll-snap-align: start;
+}
+.feedback-input {
+    color:var(--Secondrey-color--);
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight:500;
+    font-size: 18px;
+    border-radius: 5px;
+    line-height: 22px;
+    background-color: transparent;
+    border:2px solid var(--Secondrey-color--);
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 15px;
+    width:60%;
+    box-sizing: border-box;
+    outline:0;
+  }
+  
+  .feedback-input:focus { border:2px solid var(--Accent-Color--); }
+  
+  textarea {
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+  }
+  
+  [type="submit"] {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    width: 45%;
+    background:var(--Accent-Color--);
+    border-radius:5px;
+    border:0;
+    cursor:pointer;
+    color:var(--Secondrey-color--);
+    font-size:24px;
+    padding-top:10px;
+    padding-bottom:10px;
+    transition: all 0.3s;
+    margin-top:-4px;
+    font-weight:700;
+  }
+  [type="submit"]:hover { background:var(--Secondrey-color--); color: var(--white--); }
+
 
 .service-card {
     background-color: #f9f9f9;
     border: 1
+}
+
+footer p{
+    text-align: center;
+    padding: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
