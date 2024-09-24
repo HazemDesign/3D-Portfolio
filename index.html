@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hazem's 3D Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href=".//css/styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -17,7 +17,6 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-
     <!-- Hero Section -->
     <section id="home" class="hero">
         <h1>3D</h1>
@@ -25,33 +24,36 @@
         <a href="#portfolio" class="cta-button">View My Work</a>
         
     </section>
-
     <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>Hi! I'm hazem, a 20-year-old 3D Designer using Blender as my main software, I create realistic and stylized 3D models for games, animation, and other projects, I am always looking for new challenges and opportunities to learn and grow.</p>
+        <p>Hi! I'm hazem, a 20-year-old 3D Designer using Blender as my main software, 
+            I create realistic and stylized 3D models for games, animation, and other projects, 
+            I am always looking for new challenges and opportunities to learn and grow.</p>
     </section>
-
     <!-- Portfolio Section -->
     <section id="portfolio">
         <h2>Portfolio</h2>
          <h3>Product Visulization</h3>
-        <div class="scroller">
-        <ul class="tag-list scroller_inner">
-            <li>html</li>
-            <li>css</li>
-            <li>js</li>
-            <li>ui/ux</li>
-        </ul>
-        </div>
+         <main>
+            <div class="slider" style="
+                --width: 400px;
+                --height: 500px;
+                --quantity: 4; ">
+                <div class="list">
+                    <div class="item" style="--position: 1"><img src="images/1.jpg" alt=""></div>
+                    <div class="item" style="--position: 2"><img src="images/2.jpg" alt=""></div>
+                    <div class="item" style="--position: 3"><img src="images/3.jpg" alt=""></div>
+                    <div class="item" style="--position: 4"><img src="images/4.jpg" alt=""></div>
+                </div>
+            </div>
+        </main>
+    </section>
     <!-- Services Section -->
     <section id="services">
         <h2>Services</h2>
-        <div class="service-card">3D Modeling</div>
-        <div class="service-card">Architectural Visualization</div>
         <!-- More services... -->
     </section>
-
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Me</h2>
@@ -62,7 +64,6 @@
             <input type="submit" value="SUBMIT"/>
           </form>
     </section>
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Hazem’s 3D Design Studio. All rights reserved.</p>
@@ -71,5 +72,4 @@
         </div>
     </footer>
 </body>
-
 </html>

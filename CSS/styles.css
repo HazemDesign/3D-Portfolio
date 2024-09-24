@@ -1,18 +1,26 @@
 *{
     /* 60% (Main Color): The dominant color that covers the majority of your website,
      typically used for backgrounds or large sections. */
---Main-color-- :#F4F4F9;
+--Main-color-- :#1E1E1E;
     /* 30% (Secondary Color): A complementary color that adds contrast and is used for sections,
      headers, or sidebars. */
---Secondrey-color-- :#2C3E50;
+--Secondrey-color-- :#2C2C2C;
     /* 10% (Accent Color): The highlight color that draws attention to important elements like buttons,
      links, or calls to action. */
---Accent-Color-- : #FF7043;
+--Accent-Color-- : #007BFF;
+
 --white--:#ffffff;
---Light-Grey--:#ECECEC;
+
+/* 60% for body text to ensure readability against dark backgrounds. */
+--Primary-Text-- :#D1D1D1;  
+/* 30% for subtitles or less important text. */
+--Secondary-Text-- :#A0A0A0;
+/* 10% for headings or key highlights to draw attention. */
+--Accent-Text-- : #FFFFFF; 
+
 }
 html{
-    scroll-snap-type: y mandatory;
+    /* scroll-snap-type: y mandatory; */
     scroll-behavior: smooth;
 }
 
@@ -23,7 +31,18 @@ body {
     padding: 0;
     color: var(--Secondrey-color--);
 }
-
+h2 {
+    padding-top: 5%;
+    font-size: 3.5rem;
+    text-align: center;
+    color: var(--Accent-Text--);
+}
+h3{
+    color: var(--Secondary-Text--);
+}
+p{
+    color: var(--Primary-Text--);
+}
 /* scrollbar */
 /* width */
 ::-webkit-scrollbar {
@@ -64,18 +83,17 @@ nav ul li {
 nav ul li a {
     scroll-behavior: smooth;
     text-decoration: none;
-    color: var(--white--);
+    color: var(--Accent-Text--);
     transition: all .2s;
 }
 nav ul li a:hover{
     color: var(--Accent-Color--);
 }
-
 .hero {
     /* background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,0)),url(../images/hero.avif) no-repeat center center; */
     background-size: cover;
     height: 65vh;
-    color: var(--Secondrey-color--);
+    color: var(--Accent-Text--);
     text-align: center;
     padding: 20vh 0;
     scroll-snap-align: start;
@@ -83,8 +101,6 @@ nav ul li a:hover{
 .hero h1{
     font-size: 3.5rem;
 }
-
-
 .cta-button {
     background-color: var(--Accent-Color--);
     color: var(--white--);
@@ -102,12 +118,8 @@ nav ul li a:hover{
 .cta-button:click{
 transition: all .5;
 }
-h2 {
-    font-size: 3.5rem;
-    padding: 5%;
-    text-align: center;
-    color: var(--Secondrey-color--);
-}
+
+/* ------------------------------------------------------------- */
 #about{
     height: 100vh;
     scroll-snap-align: start;
@@ -116,47 +128,73 @@ h2 {
     padding: 5%;
     font-size: 1.5rem;
 }
-
+/* ------------------------------------------------------------ */
 #portfolio{
-    height: auto;
+    height: 100vh;
     scroll-snap-align: start;
 }
 #portfolio h3{
     padding-left: 5%;
 }
-.tag-list{
-    margin: 0;
-    padding-inline: 0;
-    list-style: none;
+/* slider-------------- */
+main{
+    width: min(99%, 100vw);
+    margin: auto;
 }
-.tag-list li{
-    padding: 1rem;
-    color: white;
-    background-color: #333;
-    border-radius: .5rem;
-    box-shadow: 0 0.5rem 1rem -.25rem;
+.slider{
+    /* border:1px solid red; */
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 10% 90%,
+        transparent
+    );
 }
-
-.scroller{
-    max-width: 600px;
-    outline: 3px solid green;
-}
-.scroller_inner{
-    padding-block: 1rem;
+.slider .list{
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+.slider .list .item{
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRun 20s linear infinite;
+    transition: filter 0.5s;
+    animation-delay: calc( (20s / var(--quantity)) * (var(--position) - 1) - 20s)!important;
+}
+.slider .list .item img{
+    width: 100%;
+}
+@keyframes autoRun{
+    from{
+        left: 100%;
+    }to{
+        left: calc(var(--width) * -1);
+    }
+}
+.slider:hover .item{
+    animation-play-state: paused!important;
+    filter: grayscale(1);
+}
+.slider .item:hover{
+    filter: grayscale(0);
 }
   
-  
+  /*---------------------------------------------------------  */
 #services{
     height: 100vh;
     scroll-snap-align: start;
 }
-
+  /*---------------------------------------------------------  */
 #contact{
     text-align: center;
-    height: 90vh;
+    height: 80vh;
     scroll-snap-align: start;
 }
 .feedback-input {
@@ -202,10 +240,6 @@ h2 {
   [type="submit"]:hover { background:var(--Secondrey-color--); color: var(--white--); }
 
 
-.service-card {
-    background-color: #f9f9f9;
-    border: 1
-}
 
 footer p{
     text-align: center;
